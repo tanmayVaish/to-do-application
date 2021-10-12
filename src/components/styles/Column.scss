@@ -22,5 +22,7 @@
   }
   .lowerPartColumn{
     display: flex;
+    padding: 0.5vmin;
+    flex-direction: column;
   }
 }

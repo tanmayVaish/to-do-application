@@ -1,4 +1,5 @@
 import './styles/Column.scss'
+import Card from "./Card";
 
 const Column = () =>{
   return(
@@ -6,6 +7,10 @@ const Column = () =>{
       <div className={'upperPartColumn'}>
         <span className={"titleColumn"}>To-Do</span>
         <div className={'buttonColumn'}>Add</div>
+      </div>
+      <div className={'lowerPartColumn'}>
+        <Card/>
+        <Card/>
       </div>
     </div>
   )

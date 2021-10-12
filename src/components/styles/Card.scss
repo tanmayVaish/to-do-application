@@ -1,0 +1,38 @@
+#card{
+  background: rebeccapurple;
+  width: 100%;
+  min-height: 120px;
+  height: 100%;
+  padding: 1vmin;
+  border-radius: 5px;
+
+  display: flex;
+  justify-content: space-around;
+
+  margin-bottom: 0.5vmin;
+  .inputCard{
+    border: none;
+    padding: 1vmin;
+    border-radius: 5px;
+    background: #1A1A34;
+    color: #B5A4DD;
+    width: 375px;
+    font-size: 2vmin;
+  }
+  .inputCard:focus{
+    outline: none;
+  }
+  .buttonCard{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    .buttonCardStyle{
+      background: #B5A4DD;
+      border-radius: 10px;
+      padding: 1vmin;
+      cursor: pointer;
+      user-select: none;
+      text-align: center;
+    }
+  }
+}
