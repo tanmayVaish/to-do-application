@@ -1,11 +1,33 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    #app{
-        background: #1A1A34;
-        min-width: 100vw;
-        min-height: 100vh;
-        display: flex;
-    }
+@import url('https://fonts.googleapis.com/css2?family=Bangers&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
+
+#app {
+  background: #1A1A34;
+  min-width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+
+  .head {
+    .title {
+      font-size: 7vmin;
+      text-align: center;
+      font-weight: 700;
+      color: #B5A4DD;
+      margin: 3vmin;
+      font-family: 'Bangers', cursive;
+    }
+  }
+
+  .columnContainer{
+    display: grid;
+    place-content: center;
+  }
+
+}
+

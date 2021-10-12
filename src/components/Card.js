@@ -8,6 +8,7 @@ const Card = (props) => {
 
   const [title, setTitle] = useState('');
   const [input, setInput] = useState('');
+  const [startDate, setStartDate] = useState('');
   const [dueDate, setDueDate] = useState();
 
   const dispatch = useDispatch();
@@ -33,26 +34,38 @@ const Card = (props) => {
   return (
     <div id={'card'}>
       <div className={'frontCard'}>
-        <div className={'inputFieldCard'}>
-          <input
-            className={'inputCardTitle'}
-            placeholder={'Title'}
-            value={title}
-            onChange={(e) => setTitle(e.target.value)}
-          />
-          <textarea
-            onChange={(e) => setInput(e.target.value)}
-            className={'inputCardInput'}
-            value={input}
-            placeholder={'Whatcha doing??'}/>
+
+        <div className={'fieldsCard'}>
+
+          <div className={'inputFieldCard'}>
+            <input
+              className={'inputCardTitle'}
+              placeholder={'Title'}
+              value={title}
+              onChange={(e) => setTitle(e.target.value)}
+            />
+            <textarea
+              onChange={(e) => setInput(e.target.value)}
+              className={'inputCardInput'}
+              value={input}
+              placeholder={'Whatcha doing??'}/>
+
+          </div>
+          <div className={'dateFieldCard'}>
+            <input className={'dateFieldInput'} placeholder={'Start Time'}/>
+            <input className={'dateFieldInput'} placeholder={'End Time'}/>
+          </div>
         </div>
-        <div className={'buttonCard'} onClick={addTodo}>
+
+
+        <div className={'buttonCards'} onClick={addTodo}>
           <div className={'buttonCardStyle'}>Add</div>
           <div className={'buttonCardStyle'}>Cancel</div>
         </div>
       </div>
-      <div className={'backCard'}>
 
+
+      <div className={'backCard'}>
         <Checkbox
           checked={props.done}
           onChange={handleCheck}
