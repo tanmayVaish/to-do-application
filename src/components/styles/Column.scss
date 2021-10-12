@@ -3,6 +3,7 @@
   height: 80vh;
   border: #9D86D3 5px solid;
   border-radius: 10px;
+
   .upperPartColumn{
     display: flex;
     justify-content: space-between;
@@ -18,11 +19,16 @@
       color: black;
       border-radius: 10px;
       padding: 1vmin;
+      text-align: center;
+      cursor: pointer;
+      user-select: none;
     }
   }
   .lowerPartColumn{
-    display: flex;
-    padding: 0.5vmin;
-    flex-direction: column;
+    .cardColumn{
+      display: flex;
+      padding: 0.5vmin;
+      flex-direction: column;
+    }
   }
 }
