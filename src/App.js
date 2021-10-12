@@ -1,10 +1,10 @@
-import logo from './logo.svg';
-import './App.css';
+import './App.scss';
+import Column from "./components/Column";
 
 function App() {
   return (
-    <div>
-
+    <div id={'app'}>
+      <Column/>
     </div>
   );
 }
