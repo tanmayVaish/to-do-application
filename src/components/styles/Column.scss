@@ -1,27 +1,28 @@
-
-#columns{
+#columns {
 
   display: flex;
   justify-content: space-between;
   width: 80vw;
 
-  .column{
+  .column {
     width: 500px;
     height: 80vh;
     border: #9D86D3 5px solid;
     border-radius: 10px;
 
-    .upperPartColumn{
+    .upperPartColumn {
       display: flex;
       justify-content: space-between;
       padding: 1vmin;
       border-bottom: #B5A4DD 5px solid;
-      .titleColumn{
+
+      .titleColumn {
         color: #B5A4DD;
         font-size: 3vmin;
         font-weight: 600;
       }
-      .buttonColumn{
+
+      .buttonColumn {
         background: #B5A4DD;
         color: black;
         border-radius: 10px;
@@ -31,8 +32,9 @@
         user-select: none;
       }
     }
-    .lowerPartColumn{
-      .cardColumn{
+
+    .lowerPartColumn {
+      .cardColumn {
         display: flex;
         padding: 0.5vmin;
         flex-direction: column;

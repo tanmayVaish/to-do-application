@@ -25,7 +25,6 @@ const Card = (props) => {
     props.updateTodoList(props.todoList);
     props.toggleOpen(false);
   }
-
   const deleteEditing = () => {
     props.todoList.map(card => {
       if (card === props.todo) {
@@ -34,8 +33,6 @@ const Card = (props) => {
     })
     props.toggleOpen(false);
   }
-
-
   return (
     <div id={'card'}>
       {

@@ -5,7 +5,6 @@ import {useState} from "react";
 const Column = (props) => {
 
   const [open, toggleOpen] = useState(false);
-
   return (
     <div id={'columns'}>
       <div className={'column'}>
@@ -18,7 +17,7 @@ const Column = (props) => {
                      time: Date.now(),
                      title: "",
                      description: "",
-                     start:"",
+                     start: "",
                      due: ""
                    })
                    toggleOpen(true);
