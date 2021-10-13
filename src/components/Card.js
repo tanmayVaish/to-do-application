@@ -23,7 +23,18 @@ const Card = (props) => {
       }
     })
     props.updateTodoList(props.todoList);
+    props.toggleOpen(false);
   }
+
+  const deleteEditing = () => {
+    props.todoList.map(card => {
+      if (card === props.todo) {
+        props.deleteCard(card);
+      }
+    })
+    props.toggleOpen(false);
+  }
+
 
   return (
     <div id={'card'}>
@@ -66,13 +77,12 @@ const Card = (props) => {
             </div>
             <div className={'buttonCards'}>
               <div className={'buttonCardStyle'} onClick={() => {
-                props.toggleOpen(false);
                 saveEditing();
               }}>Add
               </div>
               <div className={'buttonCardStyle'} onClick={() => {
-                props.toggleOpen(false);
-              }}>Cancel
+                deleteEditing();
+              }}>Delete
               </div>
             </div>
           </div>

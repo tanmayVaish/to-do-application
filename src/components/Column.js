@@ -47,7 +47,6 @@ const Column = (props) => {
       <div className={'column'}>
         <div className={'upperPartColumn'}>
           <span className={"titleColumn"}>In-Progress⏳</span>
-          <div className={'buttonColumn'}>Add</div>
         </div>
         <div className={'lowerPartColumn'}>
           <div className={'cardColumn'}>
@@ -57,7 +56,7 @@ const Column = (props) => {
       <div className={'column'}>
         <div className={'upperPartColumn'}>
           <span className={"titleColumn"}>Done😌</span>
-          <div className={'buttonColumn'}>Add</div>
+          <div className={'buttonColumn'}>Flush</div>
         </div>
         <div className={'lowerPartColumn'}>
           <div className={'cardColumn'}>
