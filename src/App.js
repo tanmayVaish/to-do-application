@@ -4,36 +4,10 @@ import {useState} from "react";
 
 function App() {
 
-  const newCard = {
-    time: Date.now(),
-    title: "",
-    description: "",
-    start: "",
-    due: ""
-  }
-
   const [columns, setColumns] = useState([
-    {title: "To-Do", card: [{
-        time: Date.now(),
-        title: "sdf",
-        description: "df",
-        start: "df",
-        due: "fd"
-      }]},
-    {title: "Progress", card: [{
-        time: Date.now(),
-        title: "f",
-        description: "d",
-        start: "d",
-        due: "sd"
-      }]},
-    {title: "Done", card: [{
-        time: Date.now(),
-        title: "ds",
-        description: "d",
-        start: "s",
-        due: "asd"
-      }]}
+    {title: "To-Do", card: []},
+    {title: "Progress", card: []},
+    {title: "Done", card: []}
   ])
 
   const addCard = (card, columnI) => {
@@ -59,7 +33,6 @@ function App() {
         {
           columns.map((column, columnI) => (
             <Column
-
               key={columnI}
               column={column}
               columnTitle={column.title}

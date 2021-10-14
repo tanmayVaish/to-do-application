@@ -31,7 +31,7 @@ const Column = (props) => {
         <div className={'lowerPartColumn'}>
           <div className={'cardColumn'}>
             {
-              props.column.card.map((card)=>(
+              props.column.card.map((card, cardI)=>(
                 <Card
                   key={card.time}
                   card={card}
@@ -40,45 +40,15 @@ const Column = (props) => {
                   deleteCard={props.deleteCard}
                   setColumns={props.setColumns}
                   toggleOpen={toggleOpen}
-                  coloumI={props.columnI}
+
+                  columnI={props.columnI}
+                  cardI={cardI}
                 />
               ))
             }
           </div>
         </div>
       </div>
-      {/*<div className={'column'}>*/}
-      {/*  <div className={'upperPartColumn'}>*/}
-      {/*    <span className={"titleColumn"}>In Progress</span>*/}
-      {/*  </div>*/}
-      {/*  <div className={'lowerPartColumn'}>*/}
-      {/*    <div className={'cardColumn'}>*/}
-      {/*      {*/}
-      {/*        props.progressList.map((progress)=>(*/}
-      {/*          <Card*/}
-      {/*            key={progress.time}*/}
-      {/*            todo={progress}*/}
-      {/*            todoList={props.todoList}*/}
-      {/*            deleteCard={props.deleteCard}*/}
-      {/*            updateTodoList={props.updateTodoList}*/}
-      {/*            toggleOpen={toggleOpen}*/}
-      {/*            buffer={buffer}*/}
-      {/*          />*/}
-      {/*        ))*/}
-      {/*      }*/}
-      {/*    </div>*/}
-      {/*  </div>*/}
-      {/*</div>*/}
-      {/*<div className={'column'}>*/}
-      {/*  <div className={'upperPartColumn'}>*/}
-      {/*    <span className={"titleColumn"}>Done</span>*/}
-      {/*    <div className={'buttonColumn'}>Flush</div>*/}
-      {/*  </div>*/}
-      {/*  <div className={'lowerPartColumn'}>*/}
-      {/*    <div className={'cardColumn'}>*/}
-      {/*    </div>*/}
-      {/*  </div>*/}
-      {/*</div>*/}
     </div>
   )
 }
