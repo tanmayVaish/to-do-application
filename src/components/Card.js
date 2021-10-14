@@ -1,5 +1,5 @@
 import './styles/Card.scss';
-import {useState} from "react";
+import {useRef, useState} from "react";
 
 const Card = (props) => {
 
@@ -8,6 +8,10 @@ const Card = (props) => {
   const [description, setDescription] = useState(props.todo.description);
   const [due, setDue] = useState(props.todo.due);
   const [start, setStart] = useState(props.todo.start);
+  const [dragging, setDragging] = useState(false);
+
+  const dragCard = useRef();
+  const dragNode = useRef();
 
   const saveEditing = () => {
     if (title === "" || description === "" || start === "" || due === "") {
@@ -33,8 +37,38 @@ const Card = (props) => {
     })
     props.toggleOpen(false);
   }
+
+  // Drag
+
+  const startDrag = (e, card) => {
+    console.log(e, card);
+    dragCard.current = card;
+    dragNode.current = e.target;
+    dragNode.current.addEventListener('dragend', endDrag);
+    setDragging(true);
+    props.setBuffer(card);
+  }
+  const endDrag = () => {
+    setDragging(false);
+    dragNode.current.removeEventListener('dragend', endDrag)
+    dragCard.current = null;
+    dragNode.current = null;
+  }
+  const enterDrag = (e) => {
+    // console.log("Drag Over...");
+  }
+
+
+
+
   return (
-    <div id={'card'}>
+    <div
+      draggable={true}
+      onDragStart={(e)=>{
+        startDrag(e, props.todo);
+      }}
+      onDragOver={(e)=>enterDrag(e)}
+      id={'card'}>
       {
         edit ? (
           <div className={'frontCard'}>
@@ -84,7 +118,7 @@ const Card = (props) => {
             </div>
           </div>
         ) : (
-          <div className={'backCard'}>
+          <div className={dragging?'dragging backCard':'backCard'}>
             <div className={'contentCard'}>
               <div className={'contentCardTitle'}>{props.todo.title}</div>
               <div className={'contentCardDescription'}>{props.todo.description}</div>
