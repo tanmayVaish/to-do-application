@@ -5,13 +5,13 @@ import {useState} from "react";
 const Column = (props) => {
 
   const [open, toggleOpen] = useState(false);
-  const [buffer, setBuffer] = useState(null);
 
+  // console.log(props.column.card)
   return (
     <div id={'columns'}>
       <div className={'column'}>
         <div className={'upperPartColumn'}>
-          <span className={"titleColumn"}>TO-DO</span>
+          <span className={"titleColumn"}>{props.columnTitle}</span>
           <div className={'buttonColumn'}
                onClick={() => {
                  if (!open) {
@@ -21,7 +21,7 @@ const Column = (props) => {
                      description: "",
                      start: "",
                      due: ""
-                   })
+                   }, props.columnI)
                    toggleOpen(true);
                  }
                }}
@@ -31,54 +31,54 @@ const Column = (props) => {
         <div className={'lowerPartColumn'}>
           <div className={'cardColumn'}>
             {
-              props.todoList.map((todo)=>(
+              props.column.card.map((card)=>(
                 <Card
-                  key={todo.time}
-                  todo={todo}
-                  todoList={props.todoList}
+                  key={card.time}
+                  card={card}
+                  cardList={props.column}
+                  columns={props.columns}
                   deleteCard={props.deleteCard}
-                  updateTodoList={props.updateTodoList}
+                  setColumns={props.setColumns}
                   toggleOpen={toggleOpen}
-                  buffer={buffer}
-                  setBuffer={setBuffer}
+                  coloumI={props.columnI}
                 />
               ))
             }
           </div>
         </div>
       </div>
-      <div className={'column'}>
-        <div className={'upperPartColumn'}>
-          <span className={"titleColumn"}>In Progress</span>
-        </div>
-        <div className={'lowerPartColumn'}>
-          <div className={'cardColumn'}>
-            {
-              props.progressList.map((progress)=>(
-                <Card
-                  key={progress.time}
-                  todo={progress}
-                  todoList={props.todoList}
-                  deleteCard={props.deleteCard}
-                  updateTodoList={props.updateTodoList}
-                  toggleOpen={toggleOpen}
-                  buffer={buffer}
-                />
-              ))
-            }
-          </div>
-        </div>
-      </div>
-      <div className={'column'}>
-        <div className={'upperPartColumn'}>
-          <span className={"titleColumn"}>Done</span>
-          <div className={'buttonColumn'}>Flush</div>
-        </div>
-        <div className={'lowerPartColumn'}>
-          <div className={'cardColumn'}>
-          </div>
-        </div>
-      </div>
+      {/*<div className={'column'}>*/}
+      {/*  <div className={'upperPartColumn'}>*/}
+      {/*    <span className={"titleColumn"}>In Progress</span>*/}
+      {/*  </div>*/}
+      {/*  <div className={'lowerPartColumn'}>*/}
+      {/*    <div className={'cardColumn'}>*/}
+      {/*      {*/}
+      {/*        props.progressList.map((progress)=>(*/}
+      {/*          <Card*/}
+      {/*            key={progress.time}*/}
+      {/*            todo={progress}*/}
+      {/*            todoList={props.todoList}*/}
+      {/*            deleteCard={props.deleteCard}*/}
+      {/*            updateTodoList={props.updateTodoList}*/}
+      {/*            toggleOpen={toggleOpen}*/}
+      {/*            buffer={buffer}*/}
+      {/*          />*/}
+      {/*        ))*/}
+      {/*      }*/}
+      {/*    </div>*/}
+      {/*  </div>*/}
+      {/*</div>*/}
+      {/*<div className={'column'}>*/}
+      {/*  <div className={'upperPartColumn'}>*/}
+      {/*    <span className={"titleColumn"}>Done</span>*/}
+      {/*    <div className={'buttonColumn'}>Flush</div>*/}
+      {/*  </div>*/}
+      {/*  <div className={'lowerPartColumn'}>*/}
+      {/*    <div className={'cardColumn'}>*/}
+      {/*    </div>*/}
+      {/*  </div>*/}
+      {/*</div>*/}
     </div>
   )
 }

@@ -4,35 +4,37 @@ import {useRef, useState} from "react";
 const Card = (props) => {
 
   const [edit, setEdit] = useState(true);
-  const [title, setTitle] = useState(props.todo.title);
-  const [description, setDescription] = useState(props.todo.description);
-  const [due, setDue] = useState(props.todo.due);
-  const [start, setStart] = useState(props.todo.start);
+  const [title, setTitle] = useState(props.card.title);
+  const [description, setDescription] = useState(props.card.description);
+  const [due, setDue] = useState(props.card.due);
+  const [start, setStart] = useState(props.card.start);
   const [dragging, setDragging] = useState(false);
 
   const dragCard = useRef();
   const dragNode = useRef();
+
+  console.log('1',props.cardList.card);
+  console.log(props.card)
 
   const saveEditing = () => {
     if (title === "" || description === "" || start === "" || due === "") {
       return
     }
     setEdit(!edit);
-    props.todoList.map(card => {
-      if (card === props.todo) {
+    props.cardList.card.map(card => {
+      if (card === props.card) {
         card.title = title
         card.description = description
         card.start = start
         card.due = due
       }
     })
-    props.updateTodoList(props.todoList);
     props.toggleOpen(false);
   }
   const deleteEditing = () => {
-    props.todoList.map(card => {
-      if (card === props.todo) {
-        props.deleteCard(card);
+    props.cardList.card.map(card => {
+      if (card === props.card) {
+        props.deleteCard(card, props.coloumI);
       }
     })
     props.toggleOpen(false);
@@ -46,7 +48,6 @@ const Card = (props) => {
     dragNode.current = e.target;
     dragNode.current.addEventListener('dragend', endDrag);
     setDragging(true);
-    props.setBuffer(card);
   }
   const endDrag = () => {
     setDragging(false);
@@ -65,7 +66,7 @@ const Card = (props) => {
     <div
       draggable={true}
       onDragStart={(e)=>{
-        startDrag(e, props.todo);
+        startDrag(e, props.card);
       }}
       onDragOver={(e)=>enterDrag(e)}
       id={'card'}>
@@ -120,10 +121,10 @@ const Card = (props) => {
         ) : (
           <div className={dragging?'dragging backCard':'backCard'}>
             <div className={'contentCard'}>
-              <div className={'contentCardTitle'}>{props.todo.title}</div>
-              <div className={'contentCardDescription'}>{props.todo.description}</div>
-              <div><span className={'contentCardStart'}>Start :</span> {props.todo.start}</div>
-              <div><span className={'contentCardDue'}>End :</span> {props.todo.due}</div>
+              <div className={'contentCardTitle'}>{props.card.title}</div>
+              <div className={'contentCardDescription'}>{props.card.description}</div>
+              <div><span className={'contentCardStart'}>Start :</span> {props.card.start}</div>
+              <div><span className={'contentCardDue'}>End :</span> {props.card.due}</div>
             </div>
             <div className={'buttonCard'}>
               <div className={'buttonCardStyle'} onClick={() => setEdit(!edit)}>Edit</div>
