@@ -10,12 +10,13 @@
     padding: 1vmin;
     border-radius: 5px;
     margin-bottom: 0.5vmin;
-
     display: flex;
     justify-content: space-between;
 
     //display: none;
     .fieldsCard {
+
+      margin-right: 1vmin;
 
       .inputFieldCard {
 
@@ -29,7 +30,8 @@
           border-radius: 5px;
           background: #1A1A34;
           color: #B5A4DD;
-          width: 375px;
+          width: 100%;
+          //min-width: 150px;
           font-size: 2vmin;
           margin-bottom: 0.5vmin;
           height: 40px;
@@ -46,7 +48,8 @@
           border-radius: 5px;
           background: #1A1A34;
           color: #B5A4DD;
-          width: 375px;
+          width: 100%;
+          //width: px;
           font-size: 2vmin;
         }
 
@@ -57,7 +60,7 @@
 
       .dateFieldCard {
         display: flex;
-        justify-content: space-between;
+        justify-content: space-around;
 
         .dateFieldInput {
           border: none;
@@ -65,8 +68,13 @@
           border-radius: 5px;
           background: #1A1A34;
           color: #B5A4DD;
-          width: 185px;
+          width: 100%;
+          //width: 185px;
           font-size: 2vmin;
+        }
+
+        .dateFieldInput:first-child{
+          margin-right: 0.5vmin;
         }
 
         .dateFieldInput:focus {

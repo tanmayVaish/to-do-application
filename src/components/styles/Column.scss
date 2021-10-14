@@ -1,14 +1,16 @@
 #columns {
 
   display: flex;
-  justify-content: space-between;
-  width: 80vw;
+  width: 92vw;
+  justify-content: space-around;
 
   .column {
-    width: 500px;
+    width: 56vmin;
+    min-width: 300px;
     height: 80vh;
     border: #9D86D3 5px solid;
     border-radius: 10px;
+    margin: 1.5vmin;
 
     .upperPartColumn {
       display: flex;

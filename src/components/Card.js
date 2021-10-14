@@ -87,7 +87,7 @@ const Card = (props) => {
           <div className={'backCard'}>
             <div className={'contentCard'}>
               <div className={'contentCardTitle'}>{props.todo.title}</div>
-              <pre className={'contentCardDescription'}>{props.todo.description}</pre>
+              <div className={'contentCardDescription'}>{props.todo.description}</div>
               <div><span className={'contentCardStart'}>Start :</span> {props.todo.start}</div>
               <div><span className={'contentCardDue'}>End :</span> {props.todo.due}</div>
             </div>
